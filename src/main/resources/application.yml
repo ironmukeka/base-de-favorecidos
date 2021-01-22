@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: develop
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:base-favorecidos
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+      show_sql: true
+      format_sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+---
+spring:
+  profiles: test
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:base-favorecidos
+    username: sa
+    password:
+    initialization-mode: never
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+
+# actuator
+#management.endpoint.health.show-details=always
+#management.endpoints.web.exposure.include=*
+#info.app.name=@project.name@
+#info.app.version=@project.version@
+
+# spring boot admin server
+#spring.boot.admin.client.url=http://localhost:8081
+
